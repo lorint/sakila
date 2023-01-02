@@ -173,7 +173,8 @@ CREATE TABLE film_text (
   title VARCHAR(255) NOT NULL,
   description TEXT,
   PRIMARY KEY  (film_id),
-  FULLTEXT KEY idx_title_description (title,description)
+  FULLTEXT KEY idx_title_description (title,description),
+  CONSTRAINT fk_film_text_film FOREIGN KEY (film_id) REFERENCES film (film_id) ON UPDATE CASCADE
 )ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
